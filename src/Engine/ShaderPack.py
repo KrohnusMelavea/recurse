@@ -1,13 +1,19 @@
 from uuid import UUID
+from OpenGL.GL import shaders
+from OpenGL.GL.shaders import ShaderProgram
 
 class ShaderPack: pass
 class ShaderPack:
  id: UUID
  shader_ids: list[UUID]
+ shader_program: ShaderProgram
  
  def __init__(this, id: UUID, shader_ids: list[UUID]):
   this.id = id
   this.shader_ids = shader_ids
+  
+ def compile(this, shader_binary_handles: list[int]):
+  this.shader_program = shaders.compileProgram(*shader_binary_handles)
  
  def from_dict(shader_pack: dict[str, str | list[str]]) -> ShaderPack:
   return ShaderPack(
