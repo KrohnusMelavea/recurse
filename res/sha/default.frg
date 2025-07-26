@@ -5,5 +5,5 @@ layout (location = 0) in vec3 input_fragment_coordinates;
 layout (location = 0) out vec4 output_fragment_colour;
 
 void main() {
-	output_colour = texture(texture_samplers, input_fragment_coordinates);
+	output_fragment_colour = texture(texture_samplers, input_fragment_coordinates);
 }

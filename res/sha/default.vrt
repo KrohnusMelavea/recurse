@@ -94,15 +94,15 @@ mat4 quaternion_to_rotation_matrix(const vec4 quaternion) {
   xy_squares + wz_squares      , 1.0 - xx_squares - zz_squares, yz_squares - xy_squares      , 0.0,
   xz_squares - wy_squares      , yz_squares + wx_squares      , 1.0 - xx_squares - yy_squares, 0.0,
   0.0                          , 0.0                          , 0.0                          , 1.0
- )
+ );
 }
 
 void main() {
- const mat4 instance_transformation = 
-  translation_vector_to_matrix(instanced_translation) * 
-  quaternion_to_rotation_matrix(instanced_rotation) *
-  scale_vector_to_matrix(instanced_scale) *
-  vec4(vertex_XYZ, 1.0);
+ const vec4 instance_transformation = 
+  translation_vector_to_matrix(input_instance_translation) * 
+  quaternion_to_rotation_matrix(input_instance_rotation) *
+  scale_vector_to_matrix(input_instance_scale) *
+  vec4(input_coordinates, 1.0);
 
  gl_Position = 
   ubo.projection * 
