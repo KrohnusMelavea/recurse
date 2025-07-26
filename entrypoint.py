@@ -32,9 +32,6 @@ def main():
  camera = Camera.from_dict(camera_data)
  shaders = Shader.from_dicts(shaders_data)
  shader_packs = ShaderPack.from_dicts(shader_packs_data)
- for shader in shaders:
-  shader.fetch()
-  shader.compile()
  
  renderer = Renderer(
   models,
@@ -44,6 +41,9 @@ def main():
   shaders,
   shader_packs
  )
+ renderer.fetch_shaders()
+ renderer.compile_shaders()
+ 
  end_time = time.time()
  
  WindowHandler.close()
