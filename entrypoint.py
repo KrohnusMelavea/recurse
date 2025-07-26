@@ -1,6 +1,6 @@
 import json
 import time
-from src.Engine import Renderer, Model, Entity, Texture, Camera, Shader
+from src.Engine import Renderer, Model, Entity, Texture, Camera, Shader, WindowHandler
 import src.Engine.util as util
 import os
 import uuid
@@ -9,9 +9,7 @@ import pygame
 def main():
  start_time = time.time()
  
- pygame.init()
- 
- window = pygame.display.set_mode((800, 600), pygame.OPENGL | pygame.DOUBLEBUF)
+ window_handler = WindowHandler(800, 600, "Recursor")
  
  models_raw = util.read_file("res/models.json")
  entities_raw = util.read_file("res/entities.json")
@@ -42,7 +40,7 @@ def main():
  )
  end_time = time.time()
  
- pygame.quit()
+ WindowHandler.close()
  
  print(end_time - start_time)
  

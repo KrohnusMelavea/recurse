@@ -4,3 +4,4 @@ from .Texture import Texture
 from .Renderer import Renderer
 from .Camera import Camera
 from .Shader import Shader
+from .WindowHandler import WindowHandler
