@@ -19,14 +19,18 @@ class Shader:
  )
 
  id: str
+ name: str
+ description: str
  path: str
  type: ShaderType
  source: str
  binary_handle: int
  
- def __init__(this, id: UUID, path: str):
+ def __init__(this, id: UUID, name: str, description: str, path: str):
   this.id = id
-  this.path = path
+  this.name = name
+  this.description = description
+  this.path = f"res/sha/{path}"
   this.type = Shader.get_shader_type_from_path(path)
   this.source = ""
   this.binary_handle = None
@@ -58,8 +62,13 @@ class Shader:
   else:
    return Shader.ShaderType.Invalid
  
- def from_dict(shader: list[dict[str, str]]) -> Shader:
+ def from_dict(shader: dict[str, str]) -> Shader:
   return Shader(
    id=UUID(hex=shader["id"]),
+   name=shader["name"],
+   description=shader["description"],
    path=shader["path"]
   )
+ 
+ def from_dicts(shaders: list[dict[str, str]]) -> list[Shader]:
+  return [Shader.from_dict(shader) for shader in shaders]

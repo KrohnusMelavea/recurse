@@ -1,6 +1,6 @@
 import json
 import time
-from src.Engine import Renderer, Model, Entity, Texture, Camera, Shader, WindowHandler
+from src.Engine import Renderer, Model, Entity, Texture, Camera, Shader, ShaderPack, WindowHandler
 import src.Engine.util as util
 import os
 import uuid
@@ -15,18 +15,23 @@ def main():
  entities_raw = util.read_file("res/entities.json")
  textures_raw = util.read_file("res/textures.json")
  player_state_raw = util.read_file("state/player.json")
+ shaders_raw = util.read_file("res/sha/shaders.json")
+ shader_packs_raw = util.read_file("res/sha/shader_packs.json")
  
  models_data = json.loads(models_raw)
  entities_data = json.loads(entities_raw)
  textures_data = json.loads(textures_raw)
  player_state_data = json.loads(player_state_raw)
  camera_data = player_state_data["camera"]
+ shaders_data = json.loads(shaders_raw)
+ shader_packs_data = json.loads(shader_packs_raw)
  
  models = [Model.from_dict(model) for model in models_data]
  entities = [Entity.from_dict(entity) for entity in entities_data]
  textures = [Texture.from_dict(texture) for texture in textures_data] 
  camera = Camera.from_dict(camera_data)
- shaders = [Shader(uuid.uuid4(), f"res/sha/{path}") for path in os.listdir("res/sha")]
+ shaders = Shader.from_dicts(shaders_data)
+ shader_packs = ShaderPack.from_dicts(shader_packs_data)
  for shader in shaders:
   shader.fetch()
   shader.compile()
@@ -36,7 +41,8 @@ def main():
   entities,
   textures,
   camera,
-  shaders
+  shaders,
+  shader_packs
  )
  end_time = time.time()
  
