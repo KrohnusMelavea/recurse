@@ -1,0 +1,10 @@
+{
+ "camera": {
+  "fov": 90,
+  "transformation": {
+   "translation": null,
+   "rotation": null,
+   "scale": null
+  }
+ }
+}

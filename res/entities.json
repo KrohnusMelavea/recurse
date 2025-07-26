@@ -1,0 +1,32 @@
+[
+ {
+  "id": "48fd3195-9006-4034-b051-02ed60e9ee66",
+  "model_id": null,
+  "texture_id": null,
+  "transformation": {
+   "translation": null,
+   "rotation": null,
+   "scale": null
+  }
+ },
+ {
+  "id": "d1013033-9e00-439d-8bcd-96e7a8896c2a",
+  "model_id": null,
+  "texture_id": null,
+  "transformation": {
+   "translation": null,
+   "rotation": null,
+   "scale": null
+  }
+ },
+ {
+  "id": "bb2c3eed-f860-4c16-8585-795f9683f37c",
+  "model_id": null,
+  "texture_id": null,
+  "transformation": {
+   "translation": null,
+   "rotation": null,
+   "scale": null
+  }
+ }
+]
