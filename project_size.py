@@ -1,8 +1,8 @@
 import os
 
-folders = "src",
+folders = "src", "res"
 
-file_extension_blacklist = ( ".png", )
+file_extension_blacklist = ( ".png", ".json" )
 file_directory_blacklist = ( "__pycache__" )
 
 file_directories = [
