@@ -1,5 +1,6 @@
 from .Model import Model
 from .Entity import Entity
+from .EntityGroup import EntityGroup
 from .Texture import Texture
 from .Camera import Camera
 from .Shader import Shader
@@ -21,6 +22,20 @@ class Renderer:
   this.camera = camera
   this.shaders = shaders
   this.shader_packs = shader_packs
+  
+ def draw(this):
+  entity_groups = this.group_entities()
+ 
+ def group_entities(this) -> dict[EntityGroup, list[UUID]]:
+  entity_groups: dict[EntityGroup, list[UUID]] = dict()
+  for entity in this.entities:
+   entity_group = EntityGroup(entity.model_id, entity.texture_id)
+   if entity_group in entity_groups.keys():
+    entity_groups[entity_group].append(entity.id)
+   else:
+    entity_groups[entity_group] = [entity.id]
+    
+  return entity_groups
   
  def fetch_shaders(this) -> int:
   return sum(shader.fetch() for shader in this.shaders)

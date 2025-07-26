@@ -43,6 +43,7 @@ def main():
  )
  renderer.fetch_shaders()
  renderer.compile_shaders()
+ renderer.draw()
  
  end_time = time.time()
  

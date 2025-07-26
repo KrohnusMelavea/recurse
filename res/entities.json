@@ -1,8 +1,8 @@
 [
  {
   "id": "48fd3195-9006-4034-b051-02ed60e9ee66",
-  "model_id": null,
-  "texture_id": null,
+  "model_id": "9ce15920-2559-4a6a-a80b-41eb93daf82b",
+  "texture_id": "1e550c4d-b000-4434-8352-0cfe1fde580a",
   "transformation": {
    "translation": null,
    "rotation": null,
@@ -11,8 +11,8 @@
  },
  {
   "id": "d1013033-9e00-439d-8bcd-96e7a8896c2a",
-  "model_id": null,
-  "texture_id": null,
+  "model_id": "9ce15920-2559-4a6a-a80b-41eb93daf82b",
+  "texture_id": "1e550c4d-b000-4434-8352-0cfe1fde580a",
   "transformation": {
    "translation": null,
    "rotation": null,
@@ -21,8 +21,8 @@
  },
  {
   "id": "bb2c3eed-f860-4c16-8585-795f9683f37c",
-  "model_id": null,
-  "texture_id": null,
+  "model_id": "9ce15920-2559-4a6a-a80b-41eb93daf82b",
+  "texture_id": "1e550c4d-b000-4434-8352-0cfe1fde580a",
   "transformation": {
    "translation": null,
    "rotation": null,
