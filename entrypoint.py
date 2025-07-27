@@ -8,16 +8,16 @@ import pygame
 
 def main():
  start_time = time.time()
- 
+
  window_handler = WindowHandler(800, 600, "Recursor")
- 
+
  models_raw = util.read_file("res/models.json")
  entities_raw = util.read_file("res/entities.json")
  textures_raw = util.read_file("res/textures.json")
  player_state_raw = util.read_file("state/player.json")
  shaders_raw = util.read_file("res/sha/shaders.json")
  shader_packs_raw = util.read_file("res/sha/shader_packs.json")
- 
+
  models_data = json.loads(models_raw)
  entities_data = json.loads(entities_raw)
  textures_data = json.loads(textures_raw)
@@ -25,14 +25,14 @@ def main():
  camera_data = player_state_data["camera"]
  shaders_data = json.loads(shaders_raw)
  shader_packs_data = json.loads(shader_packs_raw)
- 
+
  models = [Model.from_dict(model) for model in models_data]
  entities = [Entity.from_dict(entity) for entity in entities_data]
- textures = [Texture.from_dict(texture) for texture in textures_data] 
+ textures = [Texture.from_dict(texture) for texture in textures_data]
  camera = Camera.from_dict(camera_data)
  shaders = Shader.from_dicts(shaders_data)
  shader_packs = ShaderPack.from_dicts(shader_packs_data)
- 
+
  renderer = Renderer(
   models,
   entities,
@@ -41,15 +41,26 @@ def main():
   shaders,
   shader_packs
  )
- renderer.fetch_shaders()
- renderer.compile_shaders()
- renderer.draw()
- 
+
+ running = True
+ while True:
+  for event in pygame.event.get():
+   if event.type == pygame.KEYDOWN:
+    if event.key == pygame.K_ESCAPE:
+     running = False
+     break
+  if not running:
+   break
+
+  # window_handler.window_handle.fill()
+  renderer.draw()
+  pygame.display.flip()
+
  end_time = time.time()
- 
+
  WindowHandler.close()
- 
+
  print(end_time - start_time)
- 
+
 if __name__ == "__main__":
  main()

@@ -11,6 +11,17 @@ class Vertex4f:
   this.z = z
   this.w = w
   
+ def serialise(this) -> list[float]:
+  return [this.x, this.y, this.z, this.w]
+
+ def deserialise(vertex: list[float]) -> Vertex4f:
+  return Vertex4f(
+   x=vertex[0],
+   y=vertex[1],
+   z=vertex[2],
+   w=vertex[3]
+  )
+  
  def from_dict(vertex: dict[str, float]) -> Vertex4f:
   return Vertex4f(
    x=vertex["x"],

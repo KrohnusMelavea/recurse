@@ -9,6 +9,16 @@ class Vertex3f:
   this.y = y
   this.z = z
   
+ def serialise(this) -> list[float]:
+  return [this.x, this.y, this.z]
+
+ def deserialise(vertex: list[float]) -> Vertex3f:
+  return Vertex3f(
+   x=vertex[0],
+   y=vertex[1],
+   z=vertex[2]
+  )
+  
  def from_dict(vertex: dict[str, float]) -> Vertex3f:
   return Vertex3f(
    x=vertex["x"],

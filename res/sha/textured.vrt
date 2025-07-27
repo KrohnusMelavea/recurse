@@ -6,12 +6,10 @@ layout (binding = 0) uniform UBO {
 } ubo;
 
 layout (location = 0) in vec3 input_coordinates;
-layout (location = 1) in vec3 input_colour;
-layout (location = 2) in vec2 input_texture_coordinates;
-layout (location = 3) in vec3 input_instance_translation;
-layout (location = 4) in vec4 input_instance_rotation;
-layout (location = 5) in vec3 input_instance_scale;
-layout (location = 6) in uint input_instance_texture_index;
+layout (location = 1) in vec2 input_texture_coordinates;
+layout (location = 2) in vec3 input_instance_translation;
+layout (location = 3) in vec4 input_instance_rotation;
+layout (location = 4) in vec3 input_instance_scale;
 layout (location = 0) out vec3 output_fragment_texture_coordinates;
 
 mat4 translation_vector_to_matrix(const vec3 v) {

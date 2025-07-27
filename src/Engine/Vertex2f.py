@@ -6,6 +6,15 @@ class Vertex2f:
  def __init__(this, x: float, y: float):
   this.x = x
   this.y = y
+  
+ def serialise(this) -> list[float]:
+  return [this.x, this.y]
+
+ def deserialise(vertex: list[float]) -> Vertex2f:
+  return Vertex2f(
+   x=vertex[0],
+   y=vertex[1]
+  )
  
  def from_dict(vertex: dict[str, float]) -> Vertex2f:
   return Vertex2f(
